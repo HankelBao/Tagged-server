@@ -216,6 +216,10 @@ def notes_save():
 @app.route('/notes/delete')
 def notes_delete():
     global current_note_objectID
+    global write_lock
+    if write_lock:
+        return jsonp_failed()
+
     if current_note_objectID == None:
         return jsonp_failed()
     else:

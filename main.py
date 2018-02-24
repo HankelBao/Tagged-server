@@ -150,7 +150,7 @@ def tags_all():
         item['objectID'] = str(tag['_id'])
         items.append(item)
 
-    return jsonify({"items":items})
+    return jsonify({"items":items, "username": session['username']})
 
 @app.route('/tags/open')
 def tags_open():
